@@ -33,3 +33,8 @@ Icon?
 ehthumbs.db
 desktop.ini
 Thumbs.db
+
+################
+# Blender      #
+################
+*.blend?

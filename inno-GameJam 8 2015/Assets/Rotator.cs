@@ -16,7 +16,7 @@ public class Rotator : MonoBehaviour {
 
 	void Start() 
 	{
-		characterTransform = GameObject.Find("wizard").GetComponent<Transform>();
+		characterTransform = GameObject.Find("Player").GetComponent<Transform>();
 		transform.right = TargetDirection = characterTransform.forward;
 	}
 

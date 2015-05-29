@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: 569e7168461ee4e53b34f47ca2f29a5e
+timeCreated: 1432926705
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: ArmL
+    100002: ArmL_Object
+    100004: ArmR
+    100006: ArmR_Object
+    100008: Belt
+    100010: Belt_001
+    100012: Cone
+    100014: FootL
+    100016: FootR
+    100018: HandL
+    100020: HandR
+    100022: Head
+    100024: Hero
+    100026: LegL
+    100028: LegL_Object
+    100030: LegR
+    100032: LegR_Object
+    100034: Neck
+    100036: Torso
+    100038: Torso_001
+    100040: Torus_001
+    100042: //RootNode
+    400000: ArmL
+    400002: ArmL_Object
+    400004: ArmR
+    400006: ArmR_Object
+    400008: Belt
+    400010: Belt_001
+    400012: Cone
+    400014: FootL
+    400016: FootR
+    400018: HandL
+    400020: HandR
+    400022: Head
+    400024: Hero
+    400026: LegL
+    400028: LegL_Object
+    400030: LegR
+    400032: LegR_Object
+    400034: Neck
+    400036: Torso
+    400038: Torso_001
+    400040: Torus_001
+    400042: //RootNode
+    2300000: ArmL
+    2300002: ArmR
+    2300004: Belt
+    2300006: Belt_001
+    2300008: Cone
+    2300010: FootL
+    2300012: FootR
+    2300014: HandL
+    2300016: HandR
+    2300018: Head
+    2300020: LegL
+    2300022: LegR
+    2300024: Neck
+    2300026: Torso
+    2300028: Torso_001
+    2300030: Torus_001
+    3300000: ArmL
+    3300002: ArmR
+    3300004: Belt
+    3300006: Belt_001
+    3300008: Cone
+    3300010: FootL
+    3300012: FootR
+    3300014: HandL
+    3300016: HandR
+    3300018: Head
+    3300020: LegL
+    3300022: LegR
+    3300024: Neck
+    3300026: Torso
+    3300028: Torso_001
+    3300030: Torus_001
+    4300000: Cone
+    4300002: Torus_001
+    4300004: Torso_001
+    4300006: Head
+    4300008: Neck
+    4300010: Torso
+    4300012: Belt_001
+    4300014: Belt
+    4300016: ArmL
+    4300018: HandL
+    4300020: ArmR
+    4300022: HandR
+    4300024: LegL
+    4300026: FootL
+    4300028: LegR
+    4300030: FootR
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

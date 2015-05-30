@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GameMasterScript : MonoBehaviour 
 {
+
 	private static GameMasterScript _instance = null;
 	public static GameMasterScript Instance
 	{
@@ -18,7 +19,7 @@ public class GameMasterScript : MonoBehaviour
 		}
 
 		_instance = this;
-
+		
 		DontDestroyOnLoad(gameObject);
 	}
 
@@ -26,7 +27,7 @@ public class GameMasterScript : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-	
+
 	}
 	
 	// Update is called once per frame

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: 7459fd2f204766d47b0ff451dc8ee6dd
-timeCreated: 1432931834
+timeCreated: 1432943818
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prefabslot1: {fileID: 152420, guid: 026982dcff527cf44b16d7096d75cb7a, type: 2}
+  - prefabslot2: {instanceID: 0}
+  - prefabslot3: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

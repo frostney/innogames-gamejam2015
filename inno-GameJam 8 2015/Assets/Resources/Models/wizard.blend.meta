@@ -114,7 +114,77 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cone
+        weight: 1
+      - path: Hero
+        weight: 1
+      - path: Hero/Head
+        weight: 1
+      - path: Hero/LegL_Object
+        weight: 1
+      - path: Hero/LegL_Object/LegL
+        weight: 1
+      - path: Hero/LegL_Object/LegL/FootL
+        weight: 1
+      - path: Hero/LegR_Object
+        weight: 1
+      - path: Hero/LegR_Object/LegR
+        weight: 1
+      - path: Hero/LegR_Object/LegR/FootR
+        weight: 1
+      - path: Hero/Neck
+        weight: 1
+      - path: Hero/Torso
+        weight: 1
+      - path: Hero/Torso/ArmL_Object
+        weight: 1
+      - path: Hero/Torso/ArmL_Object/ArmL
+        weight: 1
+      - path: Hero/Torso/ArmL_Object/ArmL/HandL
+        weight: 1
+      - path: Hero/Torso/ArmR_Object
+        weight: 1
+      - path: Hero/Torso/ArmR_Object/ArmR
+        weight: 1
+      - path: Hero/Torso/ArmR_Object/ArmR/HandR
+        weight: 1
+      - path: Hero/Torso/Belt
+        weight: 1
+      - path: Hero/Torso/Belt_001
+        weight: 1
+      - path: Hero/Torso_001
+        weight: 1
+      - path: Torus_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

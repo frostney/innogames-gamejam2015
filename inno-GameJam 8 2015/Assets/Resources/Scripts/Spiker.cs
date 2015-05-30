@@ -3,22 +3,25 @@ using System.Collections;
 
 public class Spiker : MonoBehaviour
 {
-	private const float UP = 1;
-	private const float DOWN = -1;
+	private const float UP = 2;
+	private const float DOWN = 0;
 	private Vector3 ZEROPOINT;
 
+	public float timer = 0;
 	[SerializeField]
 	private bool attack = false;
 	private float position = DOWN;
-	private bool Attack
+	private bool isAttacking = false;
+	private bool Attack	   
 	{
 		get { return attack; }
 		set
 		{
-			if(value && !directionUp)
+			if(value && !isAttacking)
+			{
 				directionUp = true;
-
-			attack = value;
+			}
+			isAttacking = attack = value;
 		}
 	}
 
@@ -26,30 +29,40 @@ public class Spiker : MonoBehaviour
 	private bool directionUp = false;
 	private bool AttackAnimation()
 	{
-		if(directionUp)
-			position += Time.deltaTime * speed * 4;
-		else
-			position -= Time.deltaTime * speed / 2;
+		timer = timer + (directionUp? (Time.deltaTime*2) : -(Time.deltaTime/2) );
 
-		if(position >= UP)
-			directionUp = false;
+		position = Mathf.Lerp(DOWN, UP, timer / speed);
 
 		transform.position = ZEROPOINT + ( transform.up * position );
 
-		return !( position <= DOWN );
+		if(position >= UP)
+		{
+			position = UP;
+			directionUp = false;
+		}
+		else if(position <= DOWN)
+		{
+			position = DOWN;
+			directionUp = true;
+			isAttacking = attack = false;
+			timer = 0;
+			return false;
+		}
+
+		return true;
 	}
 
 	// Use this for initialization
 	void Start() 
 	{
 		ZEROPOINT = transform.position;
-		transform.position = ZEROPOINT + (transform.up * position);
+		
 	}
 	
 	// Update is called once per frame
 	void Update() 
 	{
-		if(Attack)
+		if(attack)
 			Attack = AttackAnimation();
 	}
 

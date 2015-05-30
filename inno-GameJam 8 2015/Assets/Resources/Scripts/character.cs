@@ -65,11 +65,11 @@ public class character : MonoBehaviour
 		}
 		else if (moving_left)
 		{
-			this.gameObject.transform.Translate(0, 0, -Time.deltaTime * walk_speed);
+			this.gameObject.transform.Translate(0, 0, Time.deltaTime * walk_speed);
 		}
 		else if (moving_right)
 		{
-			this.gameObject.transform.Translate(0, 0, -Time.deltaTime * walk_speed);
+			this.gameObject.transform.Translate(0, 0, Time.deltaTime * walk_speed);
 		}
 	}
 

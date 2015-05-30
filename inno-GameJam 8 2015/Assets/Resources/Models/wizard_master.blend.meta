@@ -68,6 +68,7 @@ ModelImporter:
     2300028: Torso
     2300030: Torso_001
     2300032: Torus_001
+    2300034: //RootNode
     3300000: ArmL
     3300002: ArmR
     3300004: Cone
@@ -85,6 +86,7 @@ ModelImporter:
     3300028: Torso
     3300030: Torso_001
     3300032: Torus_001
+    3300034: //RootNode
     4300000: Sphere
     4300002: Head
     4300004: Sphere_001

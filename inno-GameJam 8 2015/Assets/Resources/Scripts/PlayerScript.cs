@@ -12,13 +12,14 @@ public class PlayerScript : MonoBehaviour
 	}
 
 	[SerializeField]
-	private Vector3 GlobalRight,GlobalLeft,GlobalY,GlobalZ;
+	private Vector3 Right,Left;
 
+	public float speed = 1;
 	public DIRECTION MovingDirection;
 	// Use this for initialization
 	void Start() 
 	{
-	
+		GetComponent<Rigidbody>().centerOfMass =  -this.transform.up*5;
 	}
 
 	private void checkInput()
@@ -31,23 +32,28 @@ public class PlayerScript : MonoBehaviour
 			switch(MovingDirection)
 			{
 			case DIRECTION.LEFT:
-				transform.forward = GlobalLeft;
+				transform.forward = -Camera.current.gameObject.transform.right;
+				transform.GetChild(0).gameObject.GetComponent<Animation>().Play();
 				break;
 
 			case DIRECTION.STAND:
-				transform.forward = GlobalZ;
+				transform.GetChild(0).gameObject.GetComponent<Animation>().Stop();
 				break;
 
 			case DIRECTION.RIGHT:
-				transform.forward = GlobalRight;
+				transform.forward = Camera.current.gameObject.transform.right;
+				transform.GetChild(0).gameObject.GetComponent<Animation>().Play();
 				break;
 			}
+
+			MovingDirection = newDirection;
 		}
 	}
 
 	private void moveCharackter()
 	{
-
+		if(MovingDirection == DIRECTION.LEFT || MovingDirection == DIRECTION.RIGHT)
+			transform.position += transform.forward * speed;
 	}
 	
 	// Update is called once per frame

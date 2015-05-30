@@ -62,23 +62,23 @@ public class Spiker : MonoBehaviour
 	// Update is called once per frame
 	void Update() 
 	{
-		if(attack)
-			Attack = AttackAnimation();
+		//if(attack)
+		//	Attack = AttackAnimation();
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
-			attack = true;
-			if(!gameObject.GetComponent<AudioSource>().isPlaying)
-				gameObject.GetComponent<AudioSource>().PlayOneShot(GameMasterScript.Instance.Sounds.SpikerPiker);
+		//	attack = true;
+		transform.GetChild(0).gameObject.GetComponent<SpikeNippel>().Attack = true;
 	}
 
 	void OnTriggerStay(Collider other)
 	{
-			attack = true;
-			if(!gameObject.GetComponent<AudioSource>().isPlaying)
-				gameObject.GetComponent<AudioSource>().PlayOneShot(GameMasterScript.Instance.Sounds.SpikerPiker);
+		//	attack = true;
+		transform.GetChild(0).gameObject.GetComponent<SpikeNippel>().Attack = true;
 	}
+
+
 
 }
 

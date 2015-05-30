@@ -33,11 +33,11 @@ public class Switch : MonoBehaviour
 	private bool rotate()
 	{
 		Vector3 vec = transform.eulerAngles;
-		vec.z += (speed * Time.deltaTime);
+		vec.x -= (speed * Time.deltaTime);
 
 		transform.eulerAngles = vec;
 
-		if(vec.z >= 122)
+		if(vec.x <= 230)
 		{
 			ExitDoor.Open();
 			return false;

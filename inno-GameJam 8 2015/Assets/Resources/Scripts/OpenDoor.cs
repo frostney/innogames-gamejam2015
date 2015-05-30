@@ -29,19 +29,25 @@ public class OpenDoor : MonoBehaviour {
 	public float speed = 3;
 
 
-	private float closed;
+	public const float closed = 270;
+	public const float opened = 400;
+
+	public float eulerY;
+
 
 	bool AnimateDoor(bool shouldDoorBeOpen)
 	{
 		if(isAnimating)
 		{
-			float eulerY;
+			//float eulerY;
 		//	timer += Time.deltaTime;
 			transform.Rotate(new Vector3(0, 0, 1), shouldDoorBeOpen ? speed* Time.deltaTime : -speed*Time.deltaTime);
 			eulerY = transform.eulerAngles.y;
+			if(eulerY < 50)
+				eulerY += 360;
 
-			if(eulerY <= closed || eulerY >= closed+115)
-			return shouldDoorBeOpen;
+			if(eulerY < closed || eulerY > opened)
+				return shouldDoorBeOpen;
 
 			if(timer >= speed)
 				return shouldDoorBeOpen;
@@ -53,14 +59,14 @@ public class OpenDoor : MonoBehaviour {
 	public void PlaySound(char soundSign)
 	{
 		if(soundSign == 'o')
-			gameObject.transform.parent.gameObject.GetComponent<AudioSource>().PlayOneShot(GameMasterScript.Instance.Sounds.DoorOpenSound);
+			gameObject.GetComponent<AudioSource>().PlayOneShot(GameMasterScript.Instance.Sounds.DoorOpenSound);
 		else
-			gameObject.transform.parent.gameObject.GetComponent<AudioSource>().PlayOneShot(GameMasterScript.Instance.Sounds.ExitSound);
+			gameObject.GetComponent<AudioSource>().PlayOneShot(GameMasterScript.Instance.Sounds.ExitSound);
 	}
 
 	void Start()
 	{
-		closed = transform.eulerAngles.y;
+
 	}
 	
 

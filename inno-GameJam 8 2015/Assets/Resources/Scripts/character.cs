@@ -6,8 +6,6 @@ public class character : MonoBehaviour
 	Animation animation;
 	bool moving_right = false;
 	bool moving_left = false;
-	bool looking_right = false;
-	bool looking_left = false;
 	bool falling = false;
 	float rotate_y = 0f;
 	float rotate_x = 0f;
@@ -30,6 +28,12 @@ public class character : MonoBehaviour
 	public float falling_speed = 10f;
 	[SerializeField]
 	public float walk_speed = 5f;
+	[SerializeField]
+	public float max_distance_wall = 1.5f;
+	[SerializeField]
+	public float max_distance_ground = 1f;
+	[SerializeField]
+	public string ground_layer = "Ground";
 
 	// Use this for initialization
 	void Start () 
@@ -47,23 +51,53 @@ public class character : MonoBehaviour
 
 	private void CollisionCheck()
 	{
+		Vector3 pos_char = this.gameObject.transform.localPosition;
+
 		if (falling)
 		{
-			Vector3 camera_rotation = Camera.main.transform.eulerAngles;
-			Camera.main.transform.eulerAngles = new Vector3(camera_rotation.x,camera_rotation.y, camera_rotation.z + 90);
+			
+		}
+
+		RaycastHit hit;
+		Ray rayX = new Ray(pos_char, new Vector2(pos_char.x + 10, 0));
+		Physics.Raycast(rayX, out hit, max_distance_wall);
+		if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer(ground_layer))
+		{
 			Vector3 rotate = this.gameObject.transform.eulerAngles;
 			this.gameObject.transform.eulerAngles = new Vector3(rotate.x, rotate.y, rotate.z + 90);
+			pos++;
+			if (pos > 3)
+				pos = 0;
+		}
+
+		rayX = new Ray(pos_char, new Vector2(pos_char.x - 10, 0));
+		Physics.Raycast(rayX, out hit, max_distance_wall);		
+		if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer(ground_layer))
+		{
+			Vector3 rotate = this.gameObject.transform.eulerAngles;
+			this.gameObject.transform.eulerAngles = new Vector3(rotate.x, rotate.y, rotate.z - 90);
+			pos--;
+			if (pos < 0)
+				pos = 3;
+		}
+
+		rayX = new Ray(pos_char, new Vector2(0, pos_char.y - 10));
+		Physics.Raycast(rayX, out hit, max_distance_ground);
+		if (hit.collider == null && !falling)
+		{
+			SetFalling();
+		}
+		else if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer(ground_layer) && falling)
+		{
+			animation.clip = animation.GetClip(animation_idle);
+			animation.Play();
 			falling = false;
 		}
 	}
-
+		
 	private void Move()
 	{
-		if (falling)
-		{
-
-		}
-		else if (moving_left)
+		if (moving_left)
 		{
 			this.gameObject.transform.Translate(0, 0, Time.deltaTime * walk_speed);
 		}
@@ -77,52 +111,47 @@ public class character : MonoBehaviour
 	{		
 		if (Input.GetKeyUp(right) && moving_right)
 		{
-			Vector3 rotate = this.gameObject.transform.eulerAngles;
 			this.gameObject.transform.eulerAngles = new Vector3(rotate_x, rotate_y, rotate_z);
 			animation.clip = animation.GetClip(animation_idle);
 			animation.Play();
 			moving_right = false;
-			looking_right = false;
 		}
 		else if (Input.GetKeyUp(left) && moving_left)
 		{
-			Vector3 rotate = this.gameObject.transform.eulerAngles;
 			this.gameObject.transform.eulerAngles = new Vector3(rotate_x, rotate_y, rotate_z);
 			animation.clip = animation.GetClip(animation_idle);
 			animation.Play();
 			moving_left = false;
-			looking_left = false;
 		}
 		
 		if (Input.GetKeyDown(release))
 		{
-			Vector3 rotate = this.gameObject.transform.eulerAngles;
-			this.gameObject.transform.eulerAngles = new Vector3(rotate_x, rotate_y, rotate_z);
-			animation.clip = animation.GetClip(animation_fall);
-			animation.Play();
-			moving_left = false;
-			moving_right = false;
-			falling = true;
-			pos++;
-			if (pos > 3)
-				pos = 0;
+			SetFalling();
 		}
 		
 		if (Input.GetKeyDown(right) && !moving_left && !falling)
 		{
 			SetRotation(1);
 			moving_right = true;
-			looking_right = true;
 		}
 		else if (Input.GetKeyDown(left) && !moving_right && !falling)
 		{
 			SetRotation(-1);
 			moving_left = true;
-			looking_left = true;
 		}
 	}
 
-	private void SetRotation(short direction)
+	private void SetFalling()
+	{
+		this.gameObject.transform.eulerAngles = new Vector3(rotate_x, rotate_y, rotate_z);
+		animation.clip = animation.GetClip(animation_fall);
+		animation.Play();
+		moving_left = false;
+		moving_right = false;
+		falling = true;
+	}
+		
+		private void SetRotation(short direction)
 	{
 		Vector3 rotate = this.gameObject.transform.eulerAngles;
 		rotate_y = rotate.y;
@@ -146,5 +175,5 @@ public class character : MonoBehaviour
 		animation.clip = animation.GetClip(animation_walk);
 		animation.Play();
 	}
-	}
+}
 	

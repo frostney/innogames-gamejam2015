@@ -58,6 +58,7 @@ ModelImporter:
     2300028: Cube_014
     2300030: Cube_015
     2300032: Cube_016
+    2300034: //RootNode
     3300000: Cube
     3300002: Cube_001
     3300004: Cube_002
@@ -75,6 +76,7 @@ ModelImporter:
     3300028: Cube_014
     3300030: Cube_015
     3300032: Cube_016
+    3300034: //RootNode
     4300000: Cube_016
     4300002: Cube_015
     4300004: Cube_014

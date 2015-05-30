@@ -3,7 +3,18 @@ using System.Collections;
 
 public class Switch : MonoBehaviour 
 {
-	private bool rotating = false;
+	private bool _rotating = false;
+	private bool rotating
+	{
+		get { return _rotating; }
+		set
+		{
+			if(value && !_rotating)
+				gameObject.GetComponent<AudioSource>().PlayOneShot(GameMasterScript.Instance.Sounds.Switch);
+			_rotating = value;
+		}
+	}
+
 	public float speed = 10;
 
 	void Start() 
@@ -16,6 +27,8 @@ public class Switch : MonoBehaviour
 		if(rotating)
 			rotating = rotate();
 	}
+
+
 
 	private bool rotate()
 	{

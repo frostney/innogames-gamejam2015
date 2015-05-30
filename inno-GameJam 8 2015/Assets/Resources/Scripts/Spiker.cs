@@ -69,11 +69,15 @@ public class Spiker : MonoBehaviour
 	void OnTriggerEnter(Collider other)
 	{
 			attack = true;
+			if(!gameObject.GetComponent<AudioSource>().isPlaying)
+				gameObject.GetComponent<AudioSource>().PlayOneShot(GameMasterScript.Instance.Sounds.SpikerPiker);
 	}
 
 	void OnTriggerStay(Collider other)
 	{
 			attack = true;
+			if(!gameObject.GetComponent<AudioSource>().isPlaying)
+				gameObject.GetComponent<AudioSource>().PlayOneShot(GameMasterScript.Instance.Sounds.SpikerPiker);
 	}
 
 }

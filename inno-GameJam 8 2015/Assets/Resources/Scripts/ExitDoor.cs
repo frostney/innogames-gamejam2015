@@ -3,14 +3,20 @@ using System.Collections;
 
 public class ExitDoor : MonoBehaviour 
 {
-	static OpenDoor opener;
+	private static OpenDoor opener;
 
+ 
 	public static void Open()
 	{
-		opener.Open = true;	
+		opener.Open = true;
+		opener.PlaySound('o');
 	}
 
-
+	public static void PlayerExit()
+	{
+		opener.PlaySound('e');
+		GameMasterScript.Instance.NextLevel();
+	}
 
 	void Start() 
 	{

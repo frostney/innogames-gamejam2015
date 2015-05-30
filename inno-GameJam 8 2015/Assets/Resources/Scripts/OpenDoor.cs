@@ -50,7 +50,13 @@ public class OpenDoor : MonoBehaviour {
 		return !shouldDoorBeOpen;
 	}
 
-
+	public void PlaySound(char soundSign)
+	{
+		if(soundSign == 'o')
+			gameObject.transform.parent.gameObject.GetComponent<AudioSource>().PlayOneShot(GameMasterScript.Instance.Sounds.DoorOpenSound);
+		else
+			gameObject.transform.parent.gameObject.GetComponent<AudioSource>().PlayOneShot(GameMasterScript.Instance.Sounds.ExitSound);
+	}
 
 	void Start()
 	{

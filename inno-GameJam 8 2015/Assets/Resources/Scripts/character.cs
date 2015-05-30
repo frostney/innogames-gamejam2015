@@ -3,6 +3,9 @@ using System.Collections;
 
 public class character : MonoBehaviour 
 {
+	public enum DIRECTION
+	{ LEFT = -1, RIGHT = 1, UP, DOWN };
+
 	Animation animation;
 	bool moving_right = false;
 	bool moving_left = false;
@@ -33,7 +36,7 @@ public class character : MonoBehaviour
 	[SerializeField]
 	public float max_distance_ground = 1f;
 	[SerializeField]
-	public string ground_layer = "Ground";
+	public string ground_layer = "Level";
 
 	// Use this for initialization
 	void Start () 
@@ -51,6 +54,8 @@ public class character : MonoBehaviour
 
 	private void CollisionCheck()
 	{
+		Debug.Log("EnterCollisionCheck");
+
 		Vector3 pos_char = this.gameObject.transform.localPosition;
 
 		if (falling)
@@ -258,12 +263,12 @@ public class character : MonoBehaviour
 		
 		if (Input.GetKeyDown(right) && !moving_left && !falling)
 		{
-			SetRotation(1);
+			SetRotation((short)DIRECTION.RIGHT);
 			moving_right = true;
 		}
 		else if (Input.GetKeyDown(left) && !moving_right && !falling)
 		{
-			SetRotation(-1);
+			SetRotation((short)DIRECTION.LEFT);
 			moving_left = true;
 		}
 	}
@@ -278,7 +283,7 @@ public class character : MonoBehaviour
 		falling = true;
 	}
 		
-		private void SetRotation(short direction)
+	private void SetRotation(short direction)
 	{
 		Vector3 rotate = this.gameObject.transform.eulerAngles;
 		rotate_y = rotate.y;

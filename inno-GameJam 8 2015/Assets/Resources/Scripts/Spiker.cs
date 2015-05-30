@@ -68,7 +68,11 @@ public class Spiker : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.tag == "player")
+			attack = true;
+	}
+
+	void OnTriggerStay(Collider other)
+	{
 			attack = true;
 	}
 

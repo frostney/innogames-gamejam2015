@@ -4,7 +4,7 @@ using System.Collections;
 public class Switch : MonoBehaviour 
 {
 	private bool rotating = false;
-	public float speed;
+	public float speed = 10;
 
 	void Start() 
 	{
@@ -36,7 +36,8 @@ public class Switch : MonoBehaviour
 
 	void OnCollisionEnter(Collision info)
 	{
-		if(info.collider.gameObject.tag == "Player")
 			rotating = true;
+			GetComponent<Rigidbody>().isKinematic = true;
+
 	}
 }

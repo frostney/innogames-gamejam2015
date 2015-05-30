@@ -10,6 +10,9 @@ public class GameMasterScript : MonoBehaviour
 		get { return _instance; }
 	}
 
+	private GameObject Player;
+	private GameObject Door;
+
 	void Awake()
 	{
 		if(_instance != null && _instance != this)
@@ -19,7 +22,9 @@ public class GameMasterScript : MonoBehaviour
 		}
 
 		_instance = this;
-		
+		Player = GameObject.Find("Player");
+		Door = GameObject.Find("Door");
+
 		DontDestroyOnLoad(gameObject);
 	}
 
@@ -33,6 +38,6 @@ public class GameMasterScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-	
+		
 	}
 }

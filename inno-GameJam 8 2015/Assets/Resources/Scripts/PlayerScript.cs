@@ -16,4 +16,9 @@ public class PlayerScript : MonoBehaviour
 	
 	}
 
+	public void Hit()
+	{
+		//todo .. player get hit by Spikes or other enemy...
+	}
+
 }

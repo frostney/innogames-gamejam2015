@@ -25,7 +25,7 @@ public class ExitDoor : MonoBehaviour
 	
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.tag == "Player")
+		if(other.gameObject.transform.root.gameObject.tag == "Player")
 			PlayerExit();
 	}
 

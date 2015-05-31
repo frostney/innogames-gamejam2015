@@ -15,12 +15,13 @@ public class PlayerScript : MonoBehaviour
 	private Vector3 Right,Left;
 	private Transform innerTransform;
 
+	public int massPoint=10;
 
 	public DIRECTION MovingDirection;
 	// Use this for initialization
 	void Start() 
 	{
-		GetComponent<Rigidbody>().centerOfMass =  -this.transform.up * 5;
+		GetComponent<Rigidbody>().centerOfMass =  (-this.transform.up * massPoint);
 		innerTransform = transform.GetChild(0);
 	}
 

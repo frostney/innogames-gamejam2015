@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
 
 	[SerializeField]
 	private Vector3 Right,Left;
-	private GameObject wizard;
+//	private GameObject wizard;
 
 
 	public DIRECTION MovingDirection;
@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour
 	void Start() 
 	{
 		GetComponent<Rigidbody>().centerOfMass =  -this.transform.up*5;
-		wizard = transform.GetChild(0).gameObject;
+	//	wizard = transform.GetChild(0).gameObject;
 	}
 
 	public float speed = 1;
@@ -29,11 +29,22 @@ public class PlayerScript : MonoBehaviour
 	{
 		get { return (speed * Time.deltaTime); }
 	}
-
+	bool left;
+	bool right;
 	private void checkInput()
 	{
-		bool left = Input.GetKey(KeyCode.LeftArrow);
-		bool right = Input.GetKey(KeyCode.RightArrow);
+		if(Input.GetKeyDown(KeyCode.LeftArrow))
+			{ left = true; right = false; }
+
+		if(Input.GetKeyDown(KeyCode.RightArrow))
+			{ left = false; right = true; }
+
+		if(Input.GetKeyUp(KeyCode.LeftArrow))
+			{ left = false; }
+
+		if(Input.GetKeyUp(KeyCode.RightArrow))
+			{ right = false; }
+
 		DIRECTION newDirection = DIRECTION.STAND;
 
 		if(left && !right)
@@ -47,18 +58,19 @@ public class PlayerScript : MonoBehaviour
 			switch(MovingDirection)
 			{
 			case DIRECTION.LEFT:
-				wizard.transform.right = -transform.right;
-				transform.GetChild(0).gameObject.GetComponent<Animation>().Stop();
+
+
+		
 				break;
 
 			case DIRECTION.STAND:
-				wizard.transform.forward = -transform.forward;
-				transform.GetChild(0).gameObject.GetComponent<Animation>().Play();
+			
 				break;
 
 			case DIRECTION.RIGHT:
-				wizard.transform.right = transform.right;
-				transform.GetChild(0).gameObject.GetComponent<Animation>().Stop();
+
+
+			
 				break;
 			}
 
@@ -68,6 +80,7 @@ public class PlayerScript : MonoBehaviour
 
 	private void moveCharackter()
 	{
+
 		if(MovingDirection == DIRECTION.LEFT)
 			transform.position += ( -transform.right * Speed );
 		else if(MovingDirection == DIRECTION.RIGHT)

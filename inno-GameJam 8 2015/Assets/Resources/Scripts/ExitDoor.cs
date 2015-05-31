@@ -23,7 +23,11 @@ public class ExitDoor : MonoBehaviour
 		opener = transform.GetComponentInChildren<OpenDoor>();
 	}
 	
-
+	void OnTriggerEnter(Collider other)
+	{
+		if(other.gameObject.tag == "Player")
+			PlayerExit();
+	}
 
 	void Update() 
 	{

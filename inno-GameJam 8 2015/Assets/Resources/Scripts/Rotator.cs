@@ -18,7 +18,12 @@ public class Rotator : MonoBehaviour
 		vec.z = characterTransform.rotation.eulerAngles.z;
 		transform.eulerAngles = vec;
 
-		Physics.gravity = -transform.up * 9.81f;
+		if (Input.GetKeyDown(KeyCode.X))
+		{
+			Physics.gravity = transform.up * 9.81f;
+		}
+		else
+			Physics.gravity = -transform.up * 9.81f;
 
 		vec = characterTransform.position;
 		vec.z = transform.position.z;

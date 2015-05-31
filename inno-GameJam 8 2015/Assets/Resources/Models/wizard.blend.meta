@@ -120,14 +120,33 @@ ModelImporter:
     6400030: Torus_001
     6400032: Cylinder
     7400000: Default Take
+    7400002: Default Take //// Hero
+    7400004: Default Take //// Torso
+    7400006: Default Take //// LegL_Object
+    7400008: Default Take //// LegL
+    7400010: Default Take //// LegR_Object
+    7400012: Default Take //// LegR
+    7400014: Default Take //// ArmL_Object
+    7400016: Default Take //// ArmL
+    7400018: Default Take //// ArmR_Object
+    7400020: Default Take //// ArmR
     9500000: //RootNode
     11100000: //RootNode
+    11100002: ArmL
+    11100004: ArmL_Object
+    11100006: ArmR
+    11100008: ArmR_Object
+    11100010: LegL
+    11100012: LegL_Object
+    11100014: LegR
+    11100016: LegR_Object
+    11100018: Torso
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
-    legacyGenerateAnimations: 4
+    legacyGenerateAnimations: 2
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
@@ -243,7 +262,7 @@ ModelImporter:
     armStretch: .0500000007
     legStretch: .0500000007
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: Torso
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
   additionalBone: 0

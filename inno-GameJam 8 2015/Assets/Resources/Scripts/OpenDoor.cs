@@ -28,9 +28,9 @@ public class OpenDoor : MonoBehaviour {
 	private float timer=0;
 	public float speed = 3;
 
-
-	public const float closed = 270;
-	public const float opened = 400;
+	public bool ThreeSixtyDegree = true;
+	public float closed = 270;
+	public float opened = 400;
 
 	public float eulerY;
 
@@ -43,8 +43,10 @@ public class OpenDoor : MonoBehaviour {
 		//	timer += Time.deltaTime;
 			transform.Rotate(new Vector3(0, 0, 1), shouldDoorBeOpen ? speed* Time.deltaTime : -speed*Time.deltaTime);
 			eulerY = transform.eulerAngles.y;
-			if(eulerY < 50)
-				eulerY += 360;
+		
+			if(ThreeSixtyDegree)
+				if(eulerY < 50)
+					eulerY += 360;
 
 			if(eulerY < closed || eulerY > opened)
 				return shouldDoorBeOpen;

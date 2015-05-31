@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Name: SceneList
   m_EditorClassIdentifier: 
   scene:
-  - Scene-kalle
-  - Scene1
-  - Scene2
+  - Title
+  - Intro
+  - Level1
+  - Level2
+  - Level3
+  - GameOver
+  - Titele

@@ -9,7 +9,8 @@ public class TitleScreen : MonoBehaviour {
 
 		if (GUI.Button(new Rect(((Screen.width - 150) / 2), Screen.height - 50 - 50, 150, 50), "Click here to start"))
 		{
-			Application.LoadLevel("Intro");
+			GameMasterScript.Instance.NextLevel();
+		//	Application.LoadLevel("Intro");
 		}
 	}
 }

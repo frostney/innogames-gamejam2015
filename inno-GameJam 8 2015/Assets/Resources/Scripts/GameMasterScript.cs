@@ -11,7 +11,7 @@ public class GameMasterScript : MonoBehaviour
 	}
 
 	private GameObject Player;
-	private GameObject Door;
+//	private GameObject Door;
 
 	public GameSounds Sounds;
 
@@ -25,7 +25,7 @@ public class GameMasterScript : MonoBehaviour
 
 		_instance = this;
 		Player = GameObject.Find("Player");
-		Door = GameObject.Find("Door");
+	//	Door = GameObject.Find("Door");
 
 		DontDestroyOnLoad(gameObject);
 	}

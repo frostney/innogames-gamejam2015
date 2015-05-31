@@ -15,7 +15,7 @@ public class Rotator : MonoBehaviour
 	void Update() 
 	{
 		Vector3 vec = transform.rotation.eulerAngles;
-		vec.z = characterTransform.rotation.eulerAngles.x;
+		vec.z = characterTransform.rotation.eulerAngles.z;
 		transform.eulerAngles = vec;
 
 		Physics.gravity = -transform.up * 9.81f;

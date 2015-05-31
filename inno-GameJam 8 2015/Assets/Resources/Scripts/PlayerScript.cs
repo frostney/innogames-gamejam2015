@@ -13,18 +13,44 @@ public class PlayerScript : MonoBehaviour
 
 	[SerializeField]
 	private Vector3 Right,Left;
+//	private GameObject wizard;
 
-	public float speed = 1;
+
 	public DIRECTION MovingDirection;
 	// Use this for initialization
 	void Start() 
 	{
 		GetComponent<Rigidbody>().centerOfMass =  -this.transform.up*5;
+	//	wizard = transform.GetChild(0).gameObject;
 	}
 
+	public float speed = 1;
+	private float Speed
+	{
+		get { return (speed * Time.deltaTime); }
+	}
+	bool left;
+	bool right;
 	private void checkInput()
 	{
-		DIRECTION newDirection = (DIRECTION)Input.GetAxis("Horizontal");
+		if(Input.GetKeyDown(KeyCode.LeftArrow))
+			{ left = true; right = false; }
+
+		if(Input.GetKeyDown(KeyCode.RightArrow))
+			{ left = false; right = true; }
+
+		if(Input.GetKeyUp(KeyCode.LeftArrow))
+			{ left = false; }
+
+		if(Input.GetKeyUp(KeyCode.RightArrow))
+			{ right = false; }
+
+		DIRECTION newDirection = DIRECTION.STAND;
+
+		if(left && !right)
+			newDirection = DIRECTION.LEFT;
+		else if(right && !left)
+			newDirection = DIRECTION.RIGHT;
 
 		if(newDirection != MovingDirection)
 		{
@@ -32,17 +58,19 @@ public class PlayerScript : MonoBehaviour
 			switch(MovingDirection)
 			{
 			case DIRECTION.LEFT:
-				transform.forward = -Camera.current.gameObject.transform.right;
-				transform.GetChild(0).gameObject.GetComponent<Animation>().Play();
+
+
+		
 				break;
 
 			case DIRECTION.STAND:
-				transform.GetChild(0).gameObject.GetComponent<Animation>().Stop();
+			
 				break;
 
 			case DIRECTION.RIGHT:
-				transform.forward = Camera.current.gameObject.transform.right;
-				transform.GetChild(0).gameObject.GetComponent<Animation>().Play();
+
+
+			
 				break;
 			}
 
@@ -52,8 +80,11 @@ public class PlayerScript : MonoBehaviour
 
 	private void moveCharackter()
 	{
-		if(MovingDirection == DIRECTION.LEFT || MovingDirection == DIRECTION.RIGHT)
-			transform.position += transform.forward * speed;
+
+		if(MovingDirection == DIRECTION.LEFT)
+			transform.position += ( -transform.right * Speed );
+		else if(MovingDirection == DIRECTION.RIGHT)
+			transform.position += ( transform.right * Speed );
 	}
 	
 	// Update is called once per frame

@@ -20,7 +20,7 @@ public class PlayerScript : MonoBehaviour
 	// Use this for initialization
 	void Start() 
 	{
-		GetComponent<Rigidbody>().centerOfMass =  -this.transform.up*5;
+		GetComponent<Rigidbody>().centerOfMass =  -this.transform.up * 5;
 	//	wizard = transform.GetChild(0).gameObject;
 	}
 
@@ -55,21 +55,20 @@ public class PlayerScript : MonoBehaviour
 		if(newDirection != MovingDirection)
 		{
 			//rotate the character:
-			switch(MovingDirection)
+			switch(newDirection)
 			{
 			case DIRECTION.LEFT:
-
-
+				//transform.eulerAngles = new Vector3(transform.eulerAngles.x, 90.0f, transform.eulerAngles.z);
 		
 				break;
 
 			case DIRECTION.STAND:
-			
+				//transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180.0f, transform.eulerAngles.z);
+
 				break;
 
 			case DIRECTION.RIGHT:
-
-
+				//transform.eulerAngles = new Vector3(transform.eulerAngles.x, -90.0f, transform.eulerAngles.z);
 			
 				break;
 			}
@@ -82,9 +81,9 @@ public class PlayerScript : MonoBehaviour
 	{
 
 		if(MovingDirection == DIRECTION.LEFT)
-			transform.position += ( -transform.right * Speed );
-		else if(MovingDirection == DIRECTION.RIGHT)
 			transform.position += ( transform.right * Speed );
+		else if(MovingDirection == DIRECTION.RIGHT)
+			transform.position += ( -transform.right * Speed );
 	}
 	
 	// Update is called once per frame
